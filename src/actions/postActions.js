@@ -11,4 +11,15 @@ export const fetchPosts = () => dispatch => {
             payload: response.data
         });
     })
+};
+
+export const createPost = (postData) => dispatch => {
+    axios.post("https://jsonplaceholder.typicode.com/posts", postData
+ )
+    .then(res => {
+        dispatch({
+            type: NEW_POST,
+            payload: res.data
+        });
+    });
 }
